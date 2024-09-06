@@ -53,14 +53,13 @@
 
     .radio-container {
       display: flex;
+      flex-direction: column;
       align-items: center;
       margin-bottom: 15px;
     }
 
-    .radio-container img {
-      margin-left: 10px;
-      width: 50px; /* PayPalロゴのサイズを調整 */
-      height: auto;
+    .paypal-logo {
+      margin-top: 10px;
     }
 
   </style>
@@ -73,7 +72,19 @@
       <div class="radio-container">
         <input type="radio" id="paypal" name="payment" value="paypal" checked>
         <label for="paypal">PayPal</label>
-      <!-- PayPal Logo --><table border="0" cellpadding="10" cellspacing="0" align="center"><tr><td align="center"><a href="#" onclick="javascript:window.open('https://www.paypal.com/jp/webapps/mpp/logo/about','olcwhatispaypal','toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=900, height=700');"><img src="https://www.paypalobjects.com/digitalassets/c/website/marketing/apac/jp/developer/203x80_a.png" border="0" alt="ペイパル ｜VISA, Mastercard, JCB, American Express, Union Pay, 銀行"></a></td></tr></table><!-- PayPal Logo -->
+        <!-- PayPal Logo -->
+        <div class="paypal-logo">
+          <table border="0" cellpadding="10" cellspacing="0" align="center">
+            <tr>
+              <td align="center">
+                <a href="#" onclick="javascript:window.open('https://www.paypal.com/jp/webapps/mpp/logo/about','olcwhatispaypal','toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=900, height=700');">
+                  <img src="https://www.paypalobjects.com/digitalassets/c/website/marketing/apac/jp/developer/203x80_a.png" border="0" alt="ペイパル ｜VISA, Mastercard, JCB, American Express, Union Pay, 銀行">
+                </a>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <!-- End PayPal Logo -->
       </div>
 
       <div class="radio-container">

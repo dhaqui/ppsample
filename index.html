@@ -22,6 +22,7 @@
       border-radius: 10px;
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
       text-align: center;
+      max-width: 600px;
     }
 
     h2 {
@@ -54,13 +55,28 @@
     .radio-container {
       display: flex;
       align-items: center;
-      justify-content: flex-start; /* 左寄せに設定 */
+      justify-content: flex-start;
       margin-bottom: 15px;
     }
 
     .paypal-logo {
       margin-top: 10px;
       text-align: center;
+    }
+
+    .note {
+      font-size: 14px;
+      color: #555;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+
+    .bank-logo-container {
+      margin-top: 20px;
+    }
+
+    .bank-logo-container img {
+      width: 100%;
     }
 
   </style>
@@ -74,11 +90,29 @@
         <input type="radio" id="paypal" name="payment" value="paypal" checked>
         <label for="paypal">PayPal</label>
       </div>
-<!-- PayPal Logo --><table border="0" cellpadding="10" cellspacing="0" align="center"><tr><td align="center"><a href="#" onclick="javascript:window.open('https://www.paypal.com/jp/webapps/mpp/logo/about','olcwhatispaypal','toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=900, height=700');"><img src="https://www.paypalobjects.com/digitalassets/c/website/marketing/apac/jp/developer/319x110_b.png" border="0" alt="ペイパル｜カード情報も、口座番号も、ペイパルが守ります。｜VISA, Mastercard, JCB, American Express, Union Pay, 銀行"></a></td></tr></table><!-- PayPal Logo -->
+      <div class="note">
+        カードでも銀行口座からでも、IDとパスワードで簡単・安全にお支払い。新規登録は無料です。
+      </div>
+      <!-- PayPal Logo -->
+      <table border="0" cellpadding="10" cellspacing="0" align="center">
+        <tr>
+          <td align="center">
+            <a href="#" onclick="javascript:window.open('https://www.paypal.com/jp/webapps/mpp/logo/about','olcwhatispaypal','toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=900, height=700');">
+              <img src="https://www.paypalobjects.com/digitalassets/c/website/marketing/apac/jp/developer/319x110_b.png" border="0" alt="ペイパル｜カード情報も、口座番号も、ペイパルが守ります。｜VISA, Mastercard, JCB, American Express, Union Pay, 銀行">
+            </a>
+          </td>
+        </tr>
+      </table>
 
       <div class="radio-container">
         <input type="radio" id="bank" name="payment" value="bank">
         <label for="bank">銀行決済</label>
+      </div>
+      <div class="note">
+        銀行口座からのお支払がかんたん。振り込み手数料無料。全国300以上の金融機関がご利用いただけます。
+      </div>
+      <div class="bank-logo-container">
+        <img src="bank.png" alt="銀行ロゴ">
       </div>
 
       <button type="button" onclick="proceed()">決定</button>

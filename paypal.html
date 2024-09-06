@@ -21,9 +21,12 @@
       padding: 20px;
       border-radius: 10px;
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-      text-align: center; /* 中央揃えに変更 */
+      text-align: center; /* 中央揃え */
       width: 100%;
       max-width: 400px;
+      display: flex;
+      flex-direction: column; /* 上下に要素を並べる */
+      align-items: center; /* コンテナ内で中央揃え */
     }
 
     h2 {
@@ -32,10 +35,8 @@
     }
 
     #paypal-button-container {
-      display: block;
-      margin: 0 auto; /* ボタンを中央に揃える */
-      margin-top: 20px;
       width: 100%;
+      margin-top: 20px;
     }
   </style>
   <script src="https://www.paypal.com/sdk/js?client-id=AeNx2jnN5CUV4jAPLqYMat3ig6PDZXh-kKPnTjQQIIU6AVNA79QnRp-dk4tqHvnnqBbzR_WlCovKdMN-&currency=USD"></script>

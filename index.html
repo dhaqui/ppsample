@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment Selection</title>
+</head>
+<body>
+  <h2>決済方法を選択してください</h2>
+
+  <form id="paymentForm">
+    <input type="radio" id="paypal" name="payment" value="paypal" checked>
+    <label for="paypal">PayPal</label><br>
+
+    <input type="radio" id="bank" name="payment" value="bank">
+    <label for="bank">銀行決済</label><br><br>
+
+    <button type="button" onclick="proceed()">決定</button>
+  </form>
+
+  <script>
+    function proceed() {
+      const selectedPayment = document.querySelector('input[name="payment"]:checked').value;
+      if (selectedPayment === 'paypal') {
+        window.location.href = 'paypal.html';
+      } else if (selectedPayment === 'bank') {
+        window.location.href = 'bank.html';
+      }
+    }
+  </script>
+</body>
+</html>

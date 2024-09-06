@@ -62,6 +62,12 @@
       margin-bottom: 15px;
     }
 
+    .radio-container.bank {
+      margin-top: 20px;
+      justify-content: flex-start;
+      align-items: flex-start; /* 銀行ラジオボタンを左揃えにする */
+    }
+
     .paypal-logo {
       margin-top: 10px;
       text-align: left;
@@ -109,7 +115,8 @@
         </tr>
       </table>
 
-      <div class="radio-container" style="margin-top: 20px;">
+      <!-- 改行して銀行のラジオボタンをPayPalロゴの下に配置 -->
+      <div class="radio-container bank">
         <input type="radio" id="bank" name="payment" value="bank">
         <label for="bank">銀行決済</label>
       </div>

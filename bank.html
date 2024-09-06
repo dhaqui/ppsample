@@ -83,6 +83,7 @@
     <script src="https://www.paypal.com/sdk/js?client-id=AeNx2jnN5CUV4jAPLqYMat3ig6PDZXh-kKPnTjQQIIU6AVNA79QnRp-dk4tqHvnnqBbzR_WlCovKdMN-&currency=JPY"></script>
     <script>
       paypal.Buttons({
+        fundingSource: paypal.FUNDING.PAYPAL,
         createOrder: function (data, actions) {
           return actions.order.create({
             purchase_units: [{

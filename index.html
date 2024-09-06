@@ -51,29 +51,49 @@
       background-color: #005c99;
     }
 
+    .radio-container {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+
+    .radio-container img {
+      margin-left: 10px;
+      width: 50px; /* PayPalロゴのサイズを調整 */
+      height: auto;
+    }
+
   </style>
 </head>
 <body>
   <div class="container">
     <h2>決済方法を選択してください</h2>
+
     <form id="paymentForm">
-      <input type="radio" id="paypal" name="payment" value="paypal" checked>
-      <label for="paypal">PayPal</label><br>
-      <input type="radio" id="bank" name="payment" value="bank">
-      <label for="bank">銀行決済</label><br><br>
+      <div class="radio-container">
+        <input type="radio" id="paypal" name="payment" value="paypal" checked>
+        <label for="paypal">PayPal</label>
+        <img src="https://www.paypalobjects.com/webstatic/icon/pp258.png" alt="PayPal Logo">
+      </div>
+
+      <div class="radio-container">
+        <input type="radio" id="bank" name="payment" value="bank">
+        <label for="bank">銀行決済</label>
+      </div>
+
       <button type="button" onclick="proceed()">決定</button>
     </form>
-  </div>
 
-  <script>
-    function proceed() {
-      const selectedPayment = document.querySelector('input[name="payment"]:checked').value;
-      if (selectedPayment === 'paypal') {
-        window.location.href = 'paypal.html';
-      } else if (selectedPayment === 'bank') {
-        window.location.href = 'bank.html';
+    <script>
+      function proceed() {
+        const selectedPayment = document.querySelector('input[name="payment"]:checked').value;
+        if (selectedPayment === 'paypal') {
+          window.location.href = 'paypal.html';
+        } else if (selectedPayment === 'bank') {
+          window.location.href = 'bank.html';
+        }
       }
-    }
-  </script>
+    </script>
+  </div>
 </body>
 </html>

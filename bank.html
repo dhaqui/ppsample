@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PayPal Checkout</title>
+  <title>Bank Payment</title>
   <style>
     body {
       font-family: Arial, sans-serif;
       background-color: #f0f0f0;
       margin: 0;
       padding: 0;
-      height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
+      height: 100vh;
     }
 
     .container {
@@ -22,50 +22,74 @@
       border-radius: 10px;
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
       text-align: center;
-      width: 100%;
-      max-width: 400px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      max-width: 600px;
     }
 
     h2 {
       color: #333;
-      margin-bottom: 20px;
       text-align: center;
     }
 
-    #paypal-button-container {
-      margin-top: 20px;
+    button {
+      background-color: #0070ba;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      display: block;
+      margin: 20px auto;
+    }
+
+    button:hover {
+      background-color: #005c99;
+    }
+
+    .note {
+      font-size: 14px;
+      color: #555;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      text-align: left;
+    }
+
+    .bank-logo-container {
+      margin-top: 10px;
+      text-align: left;
+    }
+
+    .bank-logo-container img {
       width: 100%;
     }
+
   </style>
-  <script src="https://www.paypal.com/sdk/js?client-id=AeNx2jnN5CUV4jAPLqYMat3ig6PDZXh-kKPnTjQQIIU6AVNA79QnRp-dk4tqHvnnqBbzR_WlCovKdMN-&currency=USD"></script>
 </head>
 <body>
   <div class="container">
     <h2>銀行決済</h2>
+
+    <div class="note">
+      銀行口座からのお支払がかんたん。振り込み手数料無料。
+      <br><strong>全国300以上の金融機関がご利用いただけます。</strong>
+    </div>
+    <div class="bank-logo-container">
+      <img src="bank.png" alt="銀行ロゴ">
+    </div>
+
+    <!-- PayPalボタンを配置する場所 -->
     <div id="paypal-button-container"></div>
-  </div>
-  <script>
-    paypal.Buttons({
-      createOrder: function (data, actions) {
-        return actions.order.create({
-          purchase_units: [{
-            amount: {
-              value: '100.00' // ここに決済金額を入力します
-            }
-          }]
-        });
-      },
-      onApprove: function (data, actions) {
-        return actions.order.capture().then(function (details) {
-          alert('Transaction completed by ' + details.payer.name.given_name);
-          // 成功した場合、次のページにリダイレクトする場合は、以下を使用します
-          // window.location.href = 'success.html';
-        });
+
+    <button type="button" onclick="proceed()">決定</button>
+
+    <script src="https://www.paypal.com/sdk/js?client-id=<YOUR_CLIENT_ID>&currency=JPY"></script>
+    <script>
+      paypal.Buttons().render('#paypal-button-container');
+
+      function proceed() {
+        alert('決済が進行中です。');
       }
-    }).render('#paypal-button-container');
-  </script>
+    </script>
+  </div>
 </body>
 </html>

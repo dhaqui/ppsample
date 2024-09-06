@@ -45,6 +45,11 @@
 <body>
   <div class="container">
     <h2>PayPalで決済</h2>
+        <!-- 商品情報の表示 -->
+    <div class="product-info">
+      <strong>商品名：</strong>マカロンギフトセット<br>
+      <strong>合計金額：</strong>3600円
+    </div>
     <div id="paypal-button-container"></div>
   </div>
   <script>
@@ -53,7 +58,7 @@
         return actions.order.create({
           purchase_units: [{
             amount: {
-              value: '100' // ここに決済金額を入力します
+              value: '3600' // ここに決済金額を入力します
             }
           }]
         });

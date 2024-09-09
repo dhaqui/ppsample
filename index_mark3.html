@@ -141,15 +141,22 @@
     // "銀行口座で決済を行う" ボタンが押されたときにサーバーサイドで注文作成と決済
     async function handleBankPayment() {
       try {
+        // 注文情報の定義（ここでdataを定義）
+        const data = {
+          currency_code: 'JPY',
+          value: '3600'  // 金額を適切に設定
+        };
+
         // サーバーサイドで注文を作成
         const createOrderResponse = await fetch('https://ppsample-serverside.vercel.app/create-order', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify(data),
+          body: JSON.stringify(data),  // ここでdataを送信
           credentials: 'include'  // CORSでクッキーが必要な場合
         });
+
         const orderData = await createOrderResponse.json();
 
         // 作成した注文で決済をキャプチャ
@@ -158,8 +165,9 @@
           headers: {
             'Content-Type': 'application/json'
           },
-          body: JSON.stringify({ orderId: orderData.id })
+          body: JSON.stringify({ orderId: orderData.id })  // 注文IDを送信
         });
+
         const captureData = await captureOrderResponse.json();
 
         if (captureData.status === 'COMPLETED') {
@@ -171,6 +179,7 @@
         console.error('Error:', error);
       }
     }
+
   </script>
 </body>
 </html>

@@ -43,6 +43,10 @@
       font-size: 16px;
       border-radius: 5px;
       cursor: pointer;
+      display: block;
+      margin: 20px auto;
+      width: 50%; /* 幅を半分に設定 */
+      text-align: center;
     }
 
     button:hover {
@@ -52,6 +56,13 @@
     #paypal-button-container,
     #alternate-button-container {
       margin-top: 20px;
+      display: flex;
+      justify-content: center;
+    }
+
+    #paypal-button-container button,
+    #alternate-button-container button {
+      width: 50%; /* ボタンの幅を半分に */
     }
 
     .note {
@@ -75,8 +86,6 @@
     <label>
       <input type="radio" name="payment-option" value="paypal" checked>
       PayPal
-    <!--  <img src="https://www.paypalobjects.com/webstatic/mktg/logo/pp_cc_mark_111x69.jpg" alt="Pay with PayPal" style="width: 200px;">
-    -->
     </label>
     <div class="note">
       カードでも銀行口座からでも、IDとパスワードで簡単・安全にお支払い。新規登録は無料です。
@@ -84,8 +93,8 @@
     <div class="logo-container">
       <img src="https://www.paypalobjects.com/digitalassets/c/website/marketing/apac/jp/developer/319x110_b.png" alt="PayPalロゴ">
     </div>
-　　 <div id="paypal-button-container"></div>
-　　 <br><br>
+    <div id="paypal-button-container"></div>
+
     <!-- Other Payment Method Option -->
     <label>
       <input type="radio" name="payment-option" value="alternate">
@@ -98,7 +107,7 @@
       <img src="bank.png" alt="銀行ロゴ">
     </div>
     <div id="alternate-button-container">
-      <button>銀行口座で決済を行う</button>
+      <button type="button" onclick="location.href='bank.html'">銀行口座で決済を行う</button>
     </div>
 
   </div>

@@ -23,6 +23,7 @@
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
       text-align: left;
       max-width: 600px;
+      width: 100%; /* 横幅を100%に設定 */
     }
 
     h2 {
@@ -45,7 +46,8 @@
       cursor: pointer;
       display: block;
       margin: 20px auto;
-      width: 50%; /* 幅を半分に設定 */
+      width: 100%; /* ボタンの幅を100%に設定 */
+      max-width: 300px; /* 最大幅を300pxに制限 */
       text-align: center;
     }
 
@@ -60,11 +62,6 @@
       justify-content: center;
     }
 
-    #paypal-button-container button,
-    #alternate-button-container button {
-      width: 50%; /* ボタンの幅を半分に */
-    }
-
     .note {
       font-size: 14px;
       color: #555;
@@ -73,147 +70,8 @@
     }
 
     .logo-container img {
-      width: 400px; /* 横幅を4倍に設定 */
-    }
-
-  </style>
-</head>
-<body>
-  <div class="container">
-    <h2>支払い方法選択</h2>
-
-    <!-- PayPal Option -->
-    <label>
-      <input type="radio" name="payment-option" value="paypal" checked>
-      PayPal
-    </label>
-    <div class="note">
-      カードでも銀行口座からでも、IDとパスワードで簡単・安全にお支払い。新規登録は無料です。
-    </div>
-    <div class="logo-container">
-      <img src="https://www.paypalobjects.com/digitalassets/c/website/marketing/apac/jp/developer/319x110_b.png" alt="PayPalロゴ">
-    </div>
-    <div id="paypal-button-container"></div>
-
-    <!-- Other Payment Method Option -->
-    <label>
-      <input type="radio" name="payment-option" value="alternate">
-      銀行決済
-    </label>
-    <div class="note">
-      銀行口座からのお支払がかんたん。振り込み手数料無料。全国300以上の金融機関がご利用いただけます。
-    </div>
-    <div class="logo-container">
-      <img src="bank.png" alt="銀行ロゴ">
-    </div>
-    <div id="alternate-button-container">
-      <button type="button" onclick="location.href='bank.html'">銀行口座で決済を行う</button>
-    </div>
-
-  </div>
-
-  <script src="https://www.paypal.com/sdk/js?client-id=test&components=buttons,marks"></script>
-  <script>
-    // Render PayPal Marks
-    paypal.Marks().render('#paypal-marks-container');
-
-    // Render PayPal Buttons
-    paypal.Buttons().render('#paypal-button-container');
-
-    // Listen for changes to the radio buttons
-    document.querySelectorAll('input[name=payment-option]').forEach(function (el) {
-      el.addEventListener('change', function (event) {
-        if (event.target.value === 'paypal') {
-          document.querySelector('#alternate-button-container').style.display = 'none';
-          document.querySelector('#paypal-button-container').style.display = 'block';
-        } else {
-          document.querySelector('#alternate-button-container').style.display = 'block';
-          document.querySelector('#paypal-button-container').style.display = 'none';
-        }
-      });
-    });
-
-    // Hide non-PayPal button by default
-    document.querySelector('#alternate-button-container').style.display = 'none';
-  </script>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Payment Selection</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f0f0f0;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
-
-    .container {
-      background-color: #fff;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-      text-align: left;
-      max-width: 600px;
-    }
-
-    h2 {
-      color: #333;
-      text-align: center;
-    }
-
-    label {
-      font-size: 18px;
-      margin-right: 10px;
-    }
-
-    button {
-      background-color: #0070ba;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      font-size: 16px;
-      border-radius: 5px;
-      cursor: pointer;
-      display: block;
-      margin: 20px auto;
-      width: 50%; /* 幅を半分に設定 */
-      text-align: center;
-    }
-
-    button:hover {
-      background-color: #005c99;
-    }
-
-    #paypal-button-container,
-    #alternate-button-container {
-      margin-top: 20px;
-      display: flex;
-      justify-content: center;
-    }
-
-    #paypal-button-container button,
-    #alternate-button-container button {
-      width: 50%; /* ボタンの幅を半分に */
-    }
-
-    .note {
-      font-size: 14px;
-      color: #555;
-      margin-top: 10px;
-      text-align: left;
-    }
-
-    .logo-container img {
-      width: 400px; /* 横幅を4倍に設定 */
+      width: 100%; /* 横幅を100%に設定 */
+      max-width: 400px; /* ロゴの最大幅を制限 */
     }
 
   </style>
@@ -257,9 +115,9 @@
     // Render PayPal Buttons with a custom width
     paypal.Buttons({
       style: {
-        layout: 'vertical',  // ボタンのレイアウトを縦方向に設定
-        size: 'responsive',  // ボタンサイズをレスポンシブに設定
-        width: 300           // ボタンの横幅を指定
+        layout: 'vertical',
+        size: 'responsive',
+        width: 300  // ボタンの横幅を指定
       }
     }).render('#paypal-button-container');
 

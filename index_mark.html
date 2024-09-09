@@ -54,23 +54,47 @@
       margin-top: 20px;
     }
 
+    .note {
+      font-size: 14px;
+      color: #555;
+      margin-top: 10px;
+      text-align: left;
+    }
+
+    .logo-container img {
+      width: 100px;
+    }
+
   </style>
 </head>
 <body>
   <div class="container">
     <h2>支払い方法選択</h2>
 
+    <!-- PayPal Option -->
     <label>
       <input type="radio" name="payment-option" value="paypal" checked>
       Pay with PayPal
       <img src="https://www.paypalobjects.com/webstatic/mktg/logo/pp_cc_mark_111x69.jpg" alt="Pay with PayPal" style="width: 50px;">
     </label>
-    <br>
+    <div class="note">
+      カードでも銀行口座からでも、IDとパスワードで簡単・安全にお支払い。新規登録は無料です。
+    </div>
+    <div class="logo-container">
+      <img src="https://www.paypalobjects.com/digitalassets/c/website/marketing/apac/jp/developer/319x110_b.png" alt="PayPalロゴ">
+    </div>
+
+    <!-- Other Payment Method Option -->
     <label>
       <input type="radio" name="payment-option" value="alternate">
       Other Payment Method
-      <div id="paypal-marks-container"></div>
     </label>
+    <div class="note">
+      銀行口座からのお支払がかんたん。振り込み手数料無料。全国300以上の金融機関がご利用いただけます。
+    </div>
+    <div class="logo-container">
+      <img src="bank.png" alt="銀行ロゴ">
+    </div>
 
     <div id="paypal-button-container"></div>
     <div id="alternate-button-container">
@@ -79,7 +103,7 @@
 
   </div>
 
-  <script src="https://www.paypal.com/sdk/js?client-id=AeNx2jnN5CUV4jAPLqYMat3ig6PDZXh-kKPnTjQQIIU6AVNA79QnRp-dk4tqHvnnqBbzR_WlCovKdMN-&components=buttons,marks"></script>
+  <script src="https://www.paypal.com/sdk/js?client-id=test&components=buttons,marks"></script>
   <script>
     // Render PayPal Marks
     paypal.Marks().render('#paypal-marks-container');

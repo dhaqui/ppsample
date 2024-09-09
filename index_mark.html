@@ -62,7 +62,7 @@
     }
 
     .logo-container img {
-      width: 100px;
+      width: 400px; /* 横幅を4倍に設定 */
     }
 
   </style>
@@ -74,8 +74,8 @@
     <!-- PayPal Option -->
     <label>
       <input type="radio" name="payment-option" value="paypal" checked>
-      Pay with PayPal
-      <img src="https://www.paypalobjects.com/webstatic/mktg/logo/pp_cc_mark_111x69.jpg" alt="Pay with PayPal" style="width: 50px;">
+      PayPal
+      <img src="https://www.paypalobjects.com/webstatic/mktg/logo/pp_cc_mark_111x69.jpg" alt="Pay with PayPal" style="width: 200px;">
     </label>
     <div class="note">
       カードでも銀行口座からでも、IDとパスワードで簡単・安全にお支払い。新規登録は無料です。
@@ -87,7 +87,7 @@
     <!-- Other Payment Method Option -->
     <label>
       <input type="radio" name="payment-option" value="alternate">
-      Other Payment Method
+      銀行決済
     </label>
     <div class="note">
       銀行口座からのお支払がかんたん。振り込み手数料無料。全国300以上の金融機関がご利用いただけます。
@@ -98,7 +98,7 @@
 
     <div id="paypal-button-container"></div>
     <div id="alternate-button-container">
-      <button>Pay with a different method</button>
+      <button>銀行決済</button>
     </div>
 
   </div>

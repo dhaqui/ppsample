@@ -145,9 +145,10 @@
         const createOrderResponse = await fetch('https://ppsample-serverside.vercel.app/create-order', {
           method: 'POST',
           headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
           },
-          mode: 'cors'  // これを追加
+          body: JSON.stringify(data),
+          credentials: 'include'  // CORSでクッキーが必要な場合
         });
         const orderData = await createOrderResponse.json();
 

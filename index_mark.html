@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment Selection</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      text-align: left;
+      max-width: 600px;
+    }
+
+    h2 {
+      color: #333;
+      text-align: center;
+    }
+
+    form {
+      margin-top: 20px;
+    }
+
+    label {
+      font-size: 18px;
+      margin-right: 10px;
+    }
+
+    button {
+      background-color: #0070ba;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      display: block;
+      margin: 20px auto; /* 中央揃え */
+    }
+
+    button:hover {
+      background-color: #005c99;
+    }
+
+    .radio-container {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      margin-bottom: 15px;
+    }
+
+    .radio-container.bank {
+      margin-top: 20px;
+      justify-content: flex-start;
+      align-items: flex-start; /* 銀行ラジオボタンを左揃えにする */
+    }
+
+    .paypal-logo {
+      margin-top: 10px;
+      text-align: left;
+    }
+
+    .note {
+      font-size: 14px;
+      color: #555;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      text-align: left;
+    }
+
+    .bank-logo-container {
+      margin-top: 20px;
+      text-align: left;
+    }
+   /*
+    .bank-logo-container img {
+      width: 325px;
+      margin-left: 8px;
+    }
+    */
+    .bank-logo-container img {
+      width: 80%;
+    }
+
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>支払い方法選択</h2>
+
+    <form id="paymentForm">
+      <div class="radio-container">
+        <input type="radio" id="paypal" name="payment" value="paypal" checked>
+        <label for="paypal">PayPal</label>
+      </div>
+      <div class="note">
+        カードでも銀行口座からでも、IDとパスワードで簡単・安全にお支払い。新規登録は無料です。
+      </div>
+      <!-- PayPal Logo -->
+      <table border="0" cellpadding="10" cellspacing="0" align="left">
+        <tr>
+          <td align="left">
+            <a href="#" onclick="javascript:window.open('https://www.paypal.com/jp/webapps/mpp/logo/about','olcwhatispaypal','toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=900, height=700');">
+              <img src="https://www.paypalobjects.com/digitalassets/c/website/marketing/apac/jp/developer/319x110_b.png" border="0" alt="ペイパル｜カード情報も、口座番号も、ペイパルが守ります。｜VISA, Mastercard, JCB, American Express, Union Pay, 銀行">
+            </a>
+          </td>
+        </tr>
+      </table>
+
+      // Add the PayPal JavaScript SDK with both buttons and marks components
+      <script src="https://www.paypal.com/sdk/js?client-id=AeNx2jnN5CUV4jAPLqYMat3ig6PDZXh-kKPnTjQQIIU6AVNA79QnRp-dk4tqHvnnqBbzR_WlCovKdMN-&components=buttons,marks"></script>
+      // Render the radio buttons and marks
+      <label>
+        <input type="radio" name="payment-option" value="paypal" checked>
+        <img src="paypal-mark.jpg" alt="Pay with PayPal">
+      </label>
+      <label>
+        <input type="radio" name="payment-option" value="alternate">
+        <div id="paypal-marks-container"></div>
+      </label>
+      <div id="paypal-button-container"></div>
+      <div id="alternate-button-container">
+        <button>Pay with a different method</button>
+      </div>
+      <script>
+        // Render the PayPal marks
+        paypal.Marks().render('#paypal-marks-container');
+        // Render the PayPal buttons
+        paypal.Buttons().render('#paypal-button-container');
+        // Listen for changes to the radio buttons
+        document.querySelectorAll('input[name=payment-option]')
+          .forEach(function (el) {
+            el.addEventListener('change', function (event) {
+              // If PayPal is selected, show the PayPal button
+              if (event.target.value === 'paypal') {
+                document.body.querySelector('#alternate-button-container')
+                  .style.display = 'none';
+                document.body.querySelector('#paypal-button-container')
+                  .style.display = 'block';
+              }
+              // If alternate funding is selected, show a different button
+              if (event.target.value === 'alternate') {
+                document.body.querySelector('#alternate-button-container')
+                  .style.display = 'block';
+                document.body.querySelector('#paypal-button-container')
+                  .style.display = 'none';
+              }
+            });
+          });
+        // Hide non-PayPal button by default
+        document.body.querySelector('#alternate-button-container')
+          .style.display = 'none';
+      </script>
+　　　　<br><br><br><br><br><br><br><br>
+      <!-- 改行して銀行のラジオボタンをPayPalロゴの下に配置 -->
+      <div class="radio-container bank">
+        <input type="radio" id="bank" name="payment" value="bank">
+        <label for="bank">銀行決済</label>
+      </div>
+      <div class="note">
+        銀行口座からのお支払がかんたん。振り込み手数料無料。
+        <br><strong>全国300以上の金融機関がご利用いただけます。</strong>
+      </div>
+      <div class="bank-logo-container">
+        <img src="bank.png" alt="銀行ロゴ">
+      </div>
+
+      <button type="button" onclick="proceed()">決定</button>
+    </form>
+
+    <script>
+      function proceed() {
+        const selectedPayment = document.querySelector('input[name="payment"]:checked').value;
+        if (selectedPayment === 'paypal') {
+          window.location.href = 'paypal.html';
+        } else if (selectedPayment === 'bank') {
+          window.location.href = 'bank.html';
+        }
+      }
+    </script>
+  </div>
+</body>
+</html>

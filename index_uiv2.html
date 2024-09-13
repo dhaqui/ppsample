@@ -97,6 +97,17 @@
       font-weight: bold;
     }
 
+    .powered-by-paypal {
+      display: flex;
+      align-items: center;
+    }
+
+    .powered-by-paypal img {
+      width: 120px; /* Adjust the width to fit between the texts */
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+
   </style>
 </head>
 <body>
@@ -121,7 +132,10 @@
       <div class="radio-container bank">
         <input type="radio" id="bank" name="payment" value="bank">
         <label for="bank">かんたん銀行決済</label>
-        <span class="rebate-info">1.5%還元中</span>
+        <div class="powered-by-paypal">
+          <img src="path_to_transparent_image/powerd_by_PayPal_t.png" alt="Powered by PayPal">
+          <span class="rebate-info">1.5%還元中</span>
+        </div>
       </div>
       <div class="note">
         銀行口座からのお支払いでも、一度設定すれば素早くかんたん。新規登録・振込手数料も無料です。

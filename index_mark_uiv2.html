@@ -66,8 +66,8 @@
     }
 
     #paypal-button-container {
-    　width: 400px; /* 横幅を400pxに設定 */
-  　}
+      width: 400px; /* 横幅を400pxに設定 */
+    }
 
     .note {
       font-size: 14px;
@@ -84,7 +84,8 @@
       font-size: 12px;
       color: #0070ba;
       font-weight: bold;
-      text-align: center;
+      display: inline-block; /* Inline to ensure it's on the same line */
+      margin-left: 5px; /* Adjust spacing */
     }
 
     .powered-by-paypal {
@@ -120,13 +121,13 @@
       <img src="https://www.paypalobjects.com/digitalassets/c/website/marketing/apac/jp/developer/319x110_b.png" alt="PayPalロゴ">
     </div>
     <div id="paypal-button-container"></div>
-　　 <br><br>
+    <br><br>
     <!-- Bank Payment Method Option -->
     <label class="bank-payment">
       <input type="radio" name="payment-option" value="alternate">
       かんたん銀行決済
       <img src="powerd_by_PayPal_t.png" alt="Powered by PayPal">
-      <span class="rebate-info">1.5%<br>還元中</span>
+      <span class="rebate-info">1.5% 還元中</span> <!-- Adjusted to appear on the same line -->
     </label>
     <div class="note">
       銀行口座からのお支払いでも、一度設定すれば素早くかんたん。<br>新規登録・振込手数料も無料です。
@@ -146,23 +147,23 @@
     // Render PayPal Buttons
     paypal.Buttons({
       style: {
-      layout: 'vertical',  // ボタンのレイアウトを縦方向に設定
-      width: 400           // ボタンの横幅を指定
-    },
-    createOrder: function (data, actions) {
-      return actions.order.create({
-        purchase_units: [{
-          amount: {
-            value: '3600' // ここに決済金額を入力します
-          }
-        }]
-      });
-    },
-    onApprove: function (data, actions) {
-      return actions.order.capture().then(function (details) {
-        alert('Transaction completed by ' + details.payer.name.given_name);
-      });
-    }
+        layout: 'vertical',  // ボタンのレイアウトを縦方向に設定
+        width: 400           // ボタンの横幅を指定
+      },
+      createOrder: function (data, actions) {
+        return actions.order.create({
+          purchase_units: [{
+            amount: {
+              value: '3600' // ここに決済金額を入力します
+            }
+          }]
+        });
+      },
+      onApprove: function (data, actions) {
+        return actions.order.capture().then(function (details) {
+          alert('Transaction completed by ' + details.payer.name.given_name);
+        });
+      }
     }).render('#paypal-button-container');
 
     // Toggle visibility of the PayPal and alternate payment options

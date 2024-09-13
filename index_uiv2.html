@@ -49,7 +49,7 @@
       border-radius: 5px;
       cursor: pointer;
       display: block;
-      margin: 20px auto; /* 中央揃え */
+      margin: 20px auto; /* Center */
     }
 
     button:hover {
@@ -92,20 +92,29 @@
     }
 
     .rebate-info {
-      font-size: 14px;
+      font-size: 12px;
       color: #0070ba;
       font-weight: bold;
+      text-align: center;
     }
 
     .powered-by-paypal {
       display: flex;
       align-items: center;
+      justify-content: flex-start;
     }
 
     .powered-by-paypal img {
       width: 120px; /* Adjust the width to fit between the texts */
       margin-left: 10px;
       margin-right: 10px;
+    }
+
+    .rebate-info {
+      font-size: 12px;
+      color: #0070ba;
+      line-height: 1.2;
+      text-align: center;
     }
 
   </style>
@@ -120,7 +129,7 @@
         <label for="paypal">PayPal</label>
       </div>
       <div class="note">
-        カードでも銀行口座からでも、IDとパスワードでかんたん・安全にお支払い。新規登録は無料です。
+        カードでも銀行口座からでも、<br>IDとパスワードでかんたん・安全にお支払い。<br>新規登録は無料です。
         <a href="https://www.paypal.com/jp/webapps/mpp/logo/about" target="_blank">ペイパルとは？</a>
       </div>
       <!-- PayPal Logo -->
@@ -134,7 +143,7 @@
         <label for="bank">かんたん銀行決済</label>
         <div class="powered-by-paypal">
           <img src="powerd_by_PayPal_t.png" alt="Powered by PayPal">
-          <span class="rebate-info">1.5%還元中</span>
+          <span class="rebate-info">1.5%<br>還元中</span>
         </div>
       </div>
       <div class="note">

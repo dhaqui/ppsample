@@ -45,7 +45,7 @@
       cursor: pointer;
       display: block;
       margin: 20px auto;
-      width: 50%; /* 幅を半分に設定 */
+      width: 50%;
       text-align: center;
     }
 
@@ -62,11 +62,11 @@
 
     #paypal-button-container button,
     #alternate-button-container button {
-      width: 50%; /* ボタンの幅を半分に */
+      width: 50%;
     }
 
     #paypal-button-container {
-      width: 400px; /* 横幅を400pxに設定 */
+      width: 400px;
     }
 
     .note {
@@ -77,15 +77,15 @@
     }
 
     .logo-container img {
-      width: 400px; /* 横幅を4倍に設定 */
+      width: 400px;
     }
 
     .rebate-info {
       font-size: 12px;
       color: #0070ba;
       font-weight: bold;
-      display: inline-block; /* Inline to ensure it's on the same line */
-      margin-left: 5px; /* Adjust spacing */
+      display: inline-block;
+      text-align: center;
     }
 
     .powered-by-paypal {
@@ -95,12 +95,28 @@
     }
 
     .bank-payment img {
-      width: 120px; /* ロゴサイズ調整 */
-      vertical-align: middle; /* 縦方向の中央揃え */
+      width: 120px;
+      vertical-align: middle;
     }
 
     .bank-payment label {
-      vertical-align: middle; /* テキストとロゴを中央揃え */
+      vertical-align: middle;
+    }
+
+    /* New Style for 1.5% and 還元中 */
+    .rebate-info {
+      font-size: 12px;
+      color: #0070ba;
+      font-weight: bold;
+      display: inline-block;
+      text-align: center;
+      line-height: 1.2;
+      vertical-align: middle;
+      margin-left: 5px;
+    }
+
+    .rebate-info span {
+      display: block;
     }
 
   </style>
@@ -127,7 +143,7 @@
       <input type="radio" name="payment-option" value="alternate">
       かんたん銀行決済
       <img src="powerd_by_PayPal_t.png" alt="Powered by PayPal">
-      <span class="rebate-info">1.5% 還元中</span> <!-- Adjusted to appear on the same line -->
+      <span class="rebate-info">1.5%<span>還元中</span></span> <!-- Added line break between 1.5% and 還元中 -->
     </label>
     <div class="note">
       銀行口座からのお支払いでも、一度設定すれば素早くかんたん。<br>新規登録・振込手数料も無料です。

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bank Payment</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      max-width: 600px;
+    }
+
+    h2 {
+      color: #333;
+      text-align: center;
+    }
+
+    button {
+      background-color: #0070ba;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      display: block;
+      margin: 20px auto;
+    }
+
+    button:hover {
+      background-color: #005c99;
+    }
+
+    .note {
+      font-size: 14px;
+      color: #555;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      text-align: left;
+    }
+
+    .bank-logo-container {
+      margin-top: 10px;
+      text-align: left;
+    }
+
+    .bank-logo-container img {
+      width: 100%;
+    }
+
+    .product-info {
+      text-align: left;
+      margin-bottom: 20px;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>銀行決済</h2>
+
+    <div class="note">
+      銀行口座からのお支払がかんたん。振り込み手数料無料。
+      <br><strong>全国300以上の金融機関がご利用いただけます。</strong>
+    </div>
+    <div class="bank-logo-container">
+      <img src="bank2.png" alt="銀行ロゴ">
+    </div>
+
+    <!-- PayPalボタンを配置する場所 -->
+    <div class="product-info">
+      <strong>商品名：</strong>マカロンギフトセット<br>
+      <strong>合計金額：</strong>3600円
+    </div>
+    <div id="paypal-button-container"></div>
+
+    <script src="https://www.paypal.com/sdk/js?client-id=AV3P5knBPhPGwS7EDayvKulircVel0n9adwODe6qRp1-0vp2pZ2DRaOa0kegvAwQYlJ4K_C78v3RduCG&currency=JPY"></script>
+    <script>
+      paypal.Buttons({
+        //fundingSource: paypal.FUNDING.PAYPAL,
+        createOrder: function (data, actions) {
+          return actions.order.create({
+            purchase_units: [{
+              amount: {
+                value: '3600' // ここに決済金額を入力します
+              }
+            }]
+          });
+        },
+        onApprove: function (data, actions) {
+          return actions.order.capture().then(function (details) {
+            alert('Transaction completed by ' + details.payer.name.given_name);
+            // 成功した場合、次のページにリダイレクトする場合は、以下を使用します
+            // window.location.href = 'success.html';
+          });
+        }
+      }).render('#paypal-button-container');
+    </script>
+  </div>
+</body>
+</html>

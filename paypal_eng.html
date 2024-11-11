@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PayPal Checkout</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      width: 100%;
+      max-width: 400px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h2 {
+      color: #333;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    #paypal-button-container {
+      margin-top: 20px;
+      width: 100%;
+    }
+
+    .product-info {
+      text-align: left;
+      margin-bottom: 20px;
+    }
+  </style>
+  <script src="https://www.paypal.com/sdk/js?client-id=AeNx2jnN5CUV4jAPLqYMat3ig6PDZXh-kKPnTjQQIIU6AVNA79QnRp-dk4tqHvnnqBbzR_WlCovKdMN-&currency=JPY"></script>
+</head>
+<body>
+  <div class="container">
+    <h2>Payment with PayPal</h2>
+        <!-- 商品情報の表示 -->
+    <div class="product-info">
+      <strong>Product Name：</strong>Macaron gift set<br>
+      <strong>Total Price：</strong>¥3600
+    </div>
+    <div id="paypal-button-container"></div>
+  </div>
+  <script>
+    paypal.Buttons({
+      createOrder: function (data, actions) {
+        return actions.order.create({
+          purchase_units: [{
+            amount: {
+              value: '3600' // ここに決済金額を入力します
+            }
+          }]
+        });
+      },
+      onApprove: function (data, actions) {
+        return actions.order.capture().then(function (details) {
+          alert('Transaction completed by ' + details.payer.name.given_name);
+          // 成功した場合、次のページにリダイレクトする場合は、以下を使用します
+          // window.location.href = 'success.html';
+        });
+      }
+    }).render('#paypal-button-container');
+  </script>
+</body>
+</html>

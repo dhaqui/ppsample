@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment Selection</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      text-align: left;
+      max-width: 600px;
+    }
+
+    h2 {
+      color: #333;
+      text-align: left;
+      margin-bottom: 20px;
+    }
+
+    form {
+      margin-top: 20px;
+    }
+
+    label {
+      font-size: 18px;
+      margin-right: 10px;
+    }
+
+    button {
+      background-color: #0070ba;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      display: block;
+      margin: 20px auto; /* Center */
+    }
+
+    button:hover {
+      background-color: #005c99;
+    }
+
+    .radio-container {
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+      margin-bottom: 20px;
+    }
+
+    .note {
+      font-size: 14px;
+      color: #555;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      text-align: left;
+      line-height: 1.6;
+    }
+
+    .paypal-logo {
+      margin-top: 10px;
+      text-align: left;
+    }
+
+    .bank-logo-container {
+      margin-top: 10px;
+      text-align: left;
+    }
+
+    .bank-logo-container img {
+      width: 80%;
+    }
+
+    .radio-container img {
+      margin-left: 15px;
+      max-width: 200px;
+    }
+
+    .rebate-info {
+      font-size: 12px;
+      color: #0070ba;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .powered-by-paypal {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    .powered-by-paypal img {
+      width: 120px; /* Adjust the width to fit between the texts */
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+
+    .rebate-info {
+      font-size: 12px;
+      color: #0070ba;
+      line-height: 1.2;
+      text-align: center;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Payment Method</h2>
+
+    <form id="paymentForm">
+
+      <!-- Bank payment section -->
+      <div class="radio-container bank">
+        <input type="radio" id="bank" name="payment" value="bank">
+        <label for="bank">Simple Bank Payment</label>
+        <div class="powered-by-paypal">
+          <img src="powerd_by_PayPal_t.png" alt="Powered by PayPal">
+          <span class="rebate-info">1.5%<br>cashback</span>
+        </div>
+      </div>
+      <div class="note">
+        Once you set it up, you can pay quickly and easily from your bank account.<br>There are no new registration or transfer fees.
+        <br>
+        *More than 300 financial institutions are available.
+        <a href="https://www.paypalobjects.com/marketing/web/jp/OTB_Banks.pdf" target="_blank">Click here</a>for a list of available financial institutions.
+      </div>
+      <br><br>
+
+      <div class="radio-container">
+        <input type="radio" id="paypal" name="payment" value="paypal" checked>
+        <label for="paypal">PayPal</label>
+      </div>
+      <div class="note">
+        You can pay easily and safely with your ID and password, whether it's from a card or a bank account. New registration is free.
+        <a href="https://www.paypal.com/jp/webapps/mpp/logo/about" target="_blank">About PayPal?</a>
+      </div>
+      <!-- PayPal Logo -->
+      <div class="paypal-logo">
+        <img src="https://www.paypalobjects.com/digitalassets/c/website/marketing/apac/jp/developer/319x110_b.png" border="0" alt="ペイパル｜カード情報も、口座番号も、ペイパルが守ります。｜VISA, Mastercard, JCB, American Express, Union Pay, 銀行">
+      </div>
+      <!--
+      <div class="bank-logo-container">
+        <img src="bank.png" alt="銀行ロゴ">
+      </div>
+    -->
+
+      <button type="button" onclick="proceed()">Checkout</button>
+    </form>
+
+    <script>
+      function proceed() {
+        const selectedPayment = document.querySelector('input[name="payment"]:checked').value;
+        if (selectedPayment === 'paypal') {
+          window.location.href = 'paypal.html';
+        } else if (selectedPayment === 'bank') {
+          window.location.href = 'bank.html';
+        }
+      }
+    </script>
+  </div>
+</body>
+</html>

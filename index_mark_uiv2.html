@@ -125,20 +125,6 @@
   <div class="container">
     <h2>支払い方法選択</h2>
 
-    <!-- PayPal Option -->
-    <label>
-      <input type="radio" name="payment-option" value="paypal" checked>
-      PayPal
-    </label>
-    <div class="note">
-      カードでも銀行口座からでも、IDとパスワードでかんたん・安全にお支払い。新規登録は無料です。
-      <a href="https://www.paypal.com/jp/webapps/mpp/logo/about" target="_blank">ペイパルとは？</a>
-    </div>
-    <div class="logo-container">
-      <img src="https://www.paypalobjects.com/digitalassets/c/website/marketing/apac/jp/developer/319x110_b.png" alt="PayPalロゴ">
-    </div>
-    <div id="paypal-button-container"></div>
-    <br><br>
     <!-- Bank Payment Method Option -->
     <label class="bank-payment">
       <input type="radio" name="payment-option" value="alternate">
@@ -152,6 +138,22 @@
       ※300行以上の金融機関がご利用頂けます。利用可能な金融機関一覧は
       <a href="https://www.paypalobjects.com/marketing/web/jp/OTB_Banks.pdf" target="_blank">こちら</a>。
     </div>
+    <br><br>
+
+    <!-- PayPal Option -->
+    <label>
+      <input type="radio" name="payment-option" value="paypal" checked>
+      PayPal
+    </label>
+    <div class="note">
+      カードでも銀行口座からでも、IDとパスワードでかんたん・安全にお支払い。新規登録は無料です。
+      <a href="https://www.paypal.com/jp/webapps/mpp/logo/about" target="_blank">ペイパルとは？</a>
+    </div>
+    <div class="logo-container">
+      <img src="https://www.paypalobjects.com/digitalassets/c/website/marketing/apac/jp/developer/319x110_b.png" alt="PayPalロゴ">
+    </div>
+    <div id="paypal-button-container"></div>
+    
 
     <div id="alternate-button-container">
       <button type="button" onclick="location.href='bank.html'">銀行口座で決済を行う</button>

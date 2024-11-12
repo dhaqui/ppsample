@@ -21,7 +21,6 @@
 <script>
 
   paypal.Buttons({
-      fundingSource: paypal.FUNDING.CARD,
 
       style: {
 
@@ -34,7 +33,7 @@
           label: 'subscribe'
 
       },
-
+      fundingSource: paypal.FUNDING.CARD,
       createSubscription: function(data, actions) {
 
         return actions.subscription.create({

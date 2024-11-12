@@ -124,22 +124,9 @@
     <h2>支払い方法</h2>
 
     <form id="paymentForm">
-      <div class="radio-container">
-        <input type="radio" id="paypal" name="payment" value="paypal" checked>
-        <label for="paypal">PayPal</label>
-      </div>
-      <div class="note">
-        カードでも銀行口座からでも、IDとパスワードでかんたん・安全にお支払い。新規登録は無料です。
-        <a href="https://www.paypal.com/jp/webapps/mpp/logo/about" target="_blank">ペイパルとは？</a>
-      </div>
-      <!-- PayPal Logo -->
-      <div class="paypal-logo">
-        <img src="https://www.paypalobjects.com/digitalassets/c/website/marketing/apac/jp/developer/319x110_b.png" border="0" alt="ペイパル｜カード情報も、口座番号も、ペイパルが守ります。｜VISA, Mastercard, JCB, American Express, Union Pay, 銀行">
-      </div>
-      <br><br>
       <!-- Bank payment section -->
       <div class="radio-container bank">
-        <input type="radio" id="bank" name="payment" value="bank">
+        <input type="radio" id="bank" name="payment" value="bank" checked>
         <label for="bank">かんたん銀行決済</label>
         <div class="powered-by-paypal">
           <img src="powerd_by_PayPal_t.png" alt="Powered by PayPal">
@@ -151,6 +138,20 @@
         <br>
         ※300行以上の金融機関がご利用頂けます。利用可能な金融機関一覧は
         <a href="https://www.paypalobjects.com/marketing/web/jp/OTB_Banks.pdf" target="_blank">こちら</a>。
+      </div>
+       <br><br>
+
+      <div class="radio-container">
+        <input type="radio" id="paypal" name="payment" value="paypal">
+        <label for="paypal">PayPal</label>
+      </div>
+      <div class="note">
+        カードでも銀行口座からでも、IDとパスワードでかんたん・安全にお支払い。新規登録は無料です。
+        <a href="https://www.paypal.com/jp/webapps/mpp/logo/about" target="_blank">ペイパルとは？</a>
+      </div>
+      <!-- PayPal Logo -->
+      <div class="paypal-logo">
+        <img src="https://www.paypalobjects.com/digitalassets/c/website/marketing/apac/jp/developer/319x110_b.png" border="0" alt="ペイパル｜カード情報も、口座番号も、ペイパルが守ります。｜VISA, Mastercard, JCB, American Express, Union Pay, 銀行">
       </div>
       <!--
       <div class="bank-logo-container">

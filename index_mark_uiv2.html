@@ -119,6 +119,18 @@
       display: block;
     }
 
+    #paypal-marks-container {
+      display: inline-block;
+      width: 24px; /* ロゴの幅を設定 */
+      height: 40px; /* ロゴの高さを設定 */
+      background-image: url('path-to-your-paypal-logo.png'); /* ロゴ画像のパスを指定 */
+      background-size: contain; /* 画像を適切に表示 */
+      background-repeat: no-repeat; /* 繰り返し防止 */
+    }
+    .paypal-mark {
+      margin: 0px;
+    }
+
   </style>
 </head>
 <body>
@@ -146,7 +158,7 @@
     <br><br>
 
     <!-- PayPal Option -->
-    <label>
+    <label class="paypal-payment">
       <input type="radio" name="payment-option" value="paypal">
       <div id="paypal-marks-container"></div>
     </label>
